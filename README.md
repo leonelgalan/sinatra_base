@@ -4,7 +4,7 @@
 Run using `foreman start -f Procfile.dev` and open [localhost:3000](http://localhost:3000) in your browser.
 
 ## Download
-```
+```sh
 curl https://raw.github.com/gist/5137209 | bash -s project_name
 cd project_name
 ;: Press y on your keyboard when prompted, this might up to 20 minutes if ruby needs to be compiled
@@ -17,7 +17,7 @@ The [gist](https://gist.github.com/leonelgalan/5137209) is a simple bash script 
 
 ## Build your own
 ### Setup
-```
+```sh
 rvm get stable ;: Update RVM
 
 mkdir project_name
@@ -37,13 +37,13 @@ cd project_name
 
 ### Files
 #### Gemfile
-Use the full https address in source, the symbol for rubygems was deprecated in d30026e9c8fc6c98478120866a47ca5b619251b8
-```
+Use the full https address in source, the symbol for rubygems was deprecated in carlhuda/bundler@d30026e9c8fc6c98478120866a47ca5b619251b8
+```ruby
 source 'https://rubygems.org'
 ```
 
 [Use the pessimistic operator](http://robots.thoughtbot.com/post/2508037841/rubys-pessimistic-operator) whenever is possible.
-```
+```ruby
 gem 'sinatra', '~> 1.3.5'
 ```
 
@@ -56,7 +56,7 @@ By default, all views will be rendered inside this layout where `<%= yield %>` i
 #### public/
 All files inside _public_ will be served relative to to the root url (_/_), but '/' will not match '/index.html' and hence the
 need to send it manually if needed.
-```
+```ruby
 def '/' do
   send_file File.join(settings.public_folder, 'index.html')
 end

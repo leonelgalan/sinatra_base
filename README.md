@@ -1,7 +1,7 @@
 # Sinatra Base
 [Sinatra](http://www.sinatrarb.com) + [shotgun](https://github.com/rtomayko/shotgun) + [foreman](http://ddollar.github.com/foreman/) + [Thin](http://code.macournoyer.com/thin/). It is [Heroku](http://www.heroku.com) ready!
 
-Run using `foreman start -f Procfile.dev` and open [localhost:3000](http://localhost:3000) in your browser.
+Run using `foreman start -f Procfile.dev` and open [localhost:3000](http://localhost:3000) in your browser. `foreman start` will run the app just fine, but shotgun will not be used (desired behavior for production).
 
 ## Download
 ```
@@ -26,13 +26,12 @@ curl 'http://ftp.ruby-lang.org/pub/ruby/1.9/' 2> /dev/null | ruby -e 'puts STDIN
 
 ;: ruby-1.9.3-p392 is the latest at the time of this writing
 
-tee -a project_name/.rvmrc <<EOF
-rvm use --create --install 1.9.3-p392@project_name
-EOF
+echo "1.9.3-p392" >> project_name/.ruby-version
+echo "project_name" >> project_name/.ruby-gemset
 
 cd project_name
 
-;: Press y on your keyboard when prompted, this might take up to 20 minutes if ruby needs to be compiled from source
+;: Do `rvm install 1.9.3-p392` if needed, see which versions you have installed by typing `rvm list`
 ```
 
 ### Files
@@ -44,7 +43,7 @@ source 'https://rubygems.org'
 
 [Use the pessimistic operator](http://robots.thoughtbot.com/post/2508037841/rubys-pessimistic-operator) whenever is possible.
 ```
-gem 'sinatra', '~> 1.3.5'
+gem 'sinatra', '~> 1.4.2'
 ```
 
 #### views/layout.erb

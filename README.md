@@ -7,7 +7,7 @@ Run using `foreman start -f Procfile.dev` and open [localhost:3000](http://local
 ```sh
 curl https://raw.github.com/gist/5137209 | bash -s project_name
 cd project_name
-;: Press y on your keyboard when prompted, this might up to 20 minutes if ruby needs to be compiled
+;: Do `rvm install 1.9.3-p392` if needed, see which versions you have installed by typing `rvm list`
 ```
 
 The [gist](https://gist.github.com/leonelgalan/5137209) is a simple bash script that:
